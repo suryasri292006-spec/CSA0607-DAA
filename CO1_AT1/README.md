@@ -1,28 +1,52 @@
-# CSA0607 – Design and Analysis of Algorithms
+# ShopSphere Scalability Audit
 
-## CO1 Assessment Tool 1
+## Course Details
 
-### Question 1: Scalability Audit of an E-Commerce Platform
+* **Course Code:** CSA06
+* **Course Name:** Design and Analysis of Algorithms
+* **Assessment:** CO1 – Assessment Tool 1
 
-This repository contains the implementation, analysis, and report for the scalability audit of an e-commerce platform called ShopSphere.
+## Project Overview
 
-### Repository Structure
+This project analyses the scalability of ShopSphere, an online shopping platform. It evaluates five backend modules and a nightly report generator using algorithm analysis techniques.
 
-* `Question_1/`
+## Objectives
 
-  * `Source_Code/` – Source code and implementation.
-  * `Report/` – Assignment report and analysis.
+* Analyse time and space complexity.
+* Derive operation counts for iterative algorithms.
+* Solve recurrence relations using backward substitution.
+* Apply the Master Theorem and recursion-tree analysis.
+* Compare best, average, and worst cases of searching algorithms.
+* Estimate execution times for one million products.
+* Recommend improvements for inefficient algorithms.
 
-### Objectives
+## Modules Analysed
 
-* Analyze the time complexity of different algorithms.
-* Compare iterative and recursive approaches.
-* Apply the Master Theorem.
-* Estimate execution time for large inputs.
-* Recommend efficient algorithms for scalability.
+1. Duplicate-Listing Detector
+2. API Rate Limiter
+3. Product Search – Sequential Search and Binary Search
+4. Recommendation Engine – Current and Proposed Designs
+5. Sales Analytics Engine
+6. Nightly Report Generator
 
-### Technologies Used
+## Technologies Used
 
-* Programming and algorithm analysis
-* GitHub for version control and project organization
+* Python 3
+* GitHub
+* Design and Analysis of Algorithms concepts
 
+## Repository Structure
+
+```text
+CO1_AT1/
+├── Question_1/
+│   ├── Source_Code/
+│   │   └── daa_analysis.py
+│   └── Report/
+│       └── ShopSphere_Scalability_Audit_Report.pdf
+└── README.md
+```
+
+## Conclusion
+
+The analysis identifies quadratic-time algorithms that require redesign and demonstrates how more efficient algorithms can improve scalability as the product catalogue grows.
