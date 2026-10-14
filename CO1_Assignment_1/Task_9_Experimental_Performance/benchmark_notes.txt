@@ -1,0 +1,1 @@
+Benchmark workload: successful search for data[n//2], five timed repetitions averaged, dataset creation excluded. Times are specific to the generation environment. Re-run on the submission computer before final submission.
