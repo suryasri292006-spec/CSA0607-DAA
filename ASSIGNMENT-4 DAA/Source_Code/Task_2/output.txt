@@ -1,0 +1,17 @@
+=== Given instance ===
+  A (d=2, p=80): placed in slot 2  | slots=[None, 'A', None] total=80
+  C (d=2, p=60): placed in slot 1  | slots=['C', 'A', None] total=140
+  D (d=3, p=40): placed in slot 3  | slots=['C', 'A', 'D'] total=180
+  B (d=1, p=35): no free slot <= 1 -> REJECT | slots=['C', 'A', 'D'] total=180
+  E (d=1, p=25): no free slot <= 1 -> REJECT | slots=['C', 'A', 'D'] total=180
+Schedule (slot1..): ['C', 'A', 'D']  Total profit: 180
+
+=== Modified: profit(B) 35 -> 90 ===
+  B (d=1, p=90): placed in slot 1  | slots=['B', None, None] total=90
+  A (d=2, p=80): placed in slot 2  | slots=['B', 'A', None] total=170
+  C (d=2, p=60): no free slot <= 2 -> REJECT | slots=['B', 'A', None] total=170
+  D (d=3, p=40): placed in slot 3  | slots=['B', 'A', 'D'] total=210
+  E (d=1, p=25): no free slot <= 1 -> REJECT | slots=['B', 'A', 'D'] total=210
+Schedule (slot1..): ['B', 'A', 'D']  Total profit: 210
+
+Brute-force optimum (given instance): 180

@@ -1,0 +1,16 @@
+DP table (rows = items considered, cols = capacity 0..7)
+        0   1   2   3   4   5   6   7
+ none   0   0   0   0   0   0   0   0
+    P   0   0  12  12  12  12  12  12
+    Q   0   0  12  20  20  32  32  32
+    R   0   0  12  20  25  32  37  45
+    S   0   0  12  20  25  32  37  45
+
+Optimum value: 45  Items chosen: ['Q', 'R']
+Total weight of chosen items: 7
+Brute-force optimum: 45 -> match
+
+--- Edge cases ---
+Capacity 0: (0, [])
+Capacity 1 (nothing fits): (0, [])
+Capacity 14 (all fit): (87, ['P', 'Q', 'R', 'S'])

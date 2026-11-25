@@ -1,0 +1,35 @@
+=== Dijkstra from A ===
+  extract A (dist=0)
+     relax A->B: 0+4=4 < inf -> update, pred[B]=A
+     relax A->C: 0+7=7 < inf -> update, pred[C]=A
+  extract B (dist=4)
+     relax B->C: 4+2=6 < 7 -> update, pred[C]=B
+     relax B->D: 4+6=10 < inf -> update, pred[D]=B
+  extract C (dist=6)
+     relax C->D: 6+1=7 < 10 -> update, pred[D]=C
+     relax C->E: 6+8=14 < inf -> update, pred[E]=C
+  extract D (dist=7)
+     relax D->E: 7+3=10 < 14 -> update, pred[E]=D
+  extract E (dist=10)
+ dist: {'A': 0, 'B': 4, 'C': 6, 'D': 7, 'E': 10}
+ pred: {'A': None, 'B': 'A', 'C': 'B', 'D': 'C', 'E': 'D'}
+
+=== Bellman-Ford from A (same graph) ===
+  pass 1: {'A': 0, 'B': 4, 'C': 6, 'D': 7, 'E': 10}
+  pass 2: {'A': 0, 'B': 4, 'C': 6, 'D': 7, 'E': 10}
+ dist: {'A': 0, 'B': 4, 'C': 6, 'D': 7, 'E': 10}  negative cycle: False
+
+=== Floyd-Warshall all pairs ===
+        A    B    C    D    E
+   A    0    4    6    7   10
+   B  INF    0    2    3    6
+   C  INF  INF    0    1    4
+   D  INF  INF  INF    0    3
+   E  INF  INF  INF  INF    0
+
+=== Negative edge: A->B 2, A->C 5, C->B -4 ===
+ Dijkstra   : {'A': 0, 'B': 2, 'C': 5}  <- B wrong (true value is 1)
+ BellmanFord: {'A': 0, 'B': 1, 'C': 5}  negative cycle: False
+
+=== Negative cycle: A->B 1, B->C -3, C->B 1 ===
+ BellmanFord negative cycle detected: True

@@ -1,0 +1,28 @@
+
+=== T1 classic (cap 50) ===
+Sorted by ratio: [('P1', 6.0), ('P2', 5.0), ('P3', 4.0)]
+  P1: take whole             remaining=40    total=60.00
+  P2: take whole             remaining=20    total=160.00
+  P3: take fraction 20/30    remaining=0     total=240.00
+Fractions: {'P1': 1.0, 'P2': 1.0, 'P3': 0.667}
+Total value: 240.0
+
+=== T2 everything fits (cap 100) ===
+Sorted by ratio: [('P1', 6.0), ('P2', 5.0)]
+  P1: take whole             remaining=90    total=60.00
+  P2: take whole             remaining=70    total=160.00
+Fractions: {'P1': 1.0, 'P2': 1.0}
+Total value: 160.0
+
+=== T3 zero capacity ===
+Sorted by ratio: [('P1', 6.0)]
+Fractions: {'P1': 0.0}
+Total value: 0.0
+
+=== T4 equal ratios ===
+Sorted by ratio: [('A', 2.0), ('B', 2.0), ('C', 2.0)]
+  A: take whole             remaining=3     total=8.00
+  B: take whole             remaining=1     total=12.00
+  C: take fraction 1/6      remaining=0     total=14.00
+Fractions: {'A': 1.0, 'B': 1.0, 'C': 0.167}
+Total value: 14.0

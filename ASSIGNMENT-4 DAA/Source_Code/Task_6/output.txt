@@ -1,0 +1,36 @@
+=== Given 8-job dataset ===
+  j=1 J1: p=0  include=20+OPT[0]=20   exclude=OPT[0]=0    -> OPT[1]=20 (INCLUDE)
+  j=2 J2: p=0  include=50+OPT[0]=50   exclude=OPT[1]=20   -> OPT[2]=50 (INCLUDE)
+  j=3 J3: p=1  include=30+OPT[1]=50   exclude=OPT[2]=50   -> OPT[3]=50 (exclude)
+  j=4 J4: p=3  include=40+OPT[3]=90   exclude=OPT[3]=50   -> OPT[4]=90 (INCLUDE)
+  j=5 J5: p=2  include=60+OPT[2]=110  exclude=OPT[4]=90   -> OPT[5]=110 (INCLUDE)
+  j=6 J6: p=4  include=30+OPT[4]=120  exclude=OPT[5]=110  -> OPT[6]=120 (INCLUDE)
+  j=7 J7: p=5  include=50+OPT[5]=160  exclude=OPT[6]=120  -> OPT[7]=160 (INCLUDE)
+  j=8 J8: p=7  include=40+OPT[7]=200  exclude=OPT[7]=160  -> OPT[8]=200 (INCLUDE)
+Selected: ['J2', 'J5', 'J7', 'J8']  Total energy-saving value: 200
+Brute force: 200
+  greedy(earliest finish) -> (160, ['J1', 'J3', 'J4', 'J6', 'J8'])
+  greedy(highest value) -> (200, ['J5', 'J2', 'J7', 'J8'])
+  greedy(shortest duration) -> (160, ['J1', 'J3', 'J4', 'J6', 'J8'])
+
+=== Adversarial dataset (6 jobs) ===
+   ('K1', 4, 6, 50)
+   ('K2', 10, 11, 50)
+   ('K3', 6, 8, 55)
+   ('K4', 3, 6, 40)
+   ('K5', 4, 10, 95)
+   ('K6', 2, 6, 75)
+  greedy(earliest finish) -> (155, ['K1', 'K3', 'K2'])
+  greedy(highest value) -> (145, ['K5', 'K2'])
+  greedy(shortest duration) -> (155, ['K2', 'K1', 'K3'])
+DP trace:
+  j=1 K1: p=0  include=50+OPT[0]=50   exclude=OPT[0]=0    -> OPT[1]=50 (INCLUDE)
+  j=2 K4: p=0  include=40+OPT[0]=40   exclude=OPT[1]=50   -> OPT[2]=50 (exclude)
+  j=3 K6: p=0  include=75+OPT[0]=75   exclude=OPT[2]=50   -> OPT[3]=75 (INCLUDE)
+  j=4 K3: p=3  include=55+OPT[3]=130  exclude=OPT[3]=75   -> OPT[4]=130 (INCLUDE)
+  j=5 K5: p=0  include=95+OPT[0]=95   exclude=OPT[4]=130  -> OPT[5]=130 (exclude)
+  j=6 K2: p=5  include=50+OPT[5]=180  exclude=OPT[5]=130  -> OPT[6]=180 (INCLUDE)
+DP selected: ['K6', 'K3', 'K2']  value: 180  | brute force: (180, ['K2', 'K3', 'K6'])
+
+=== Randomised verification vs brute force (500 tests) ===
+Mismatches: 0
